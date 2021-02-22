@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
 
+  @Output() parametrosSeleccionados = new EventEmitter<any>()
+
   categoriaSeleccionada = 'general'
-  paisSeleccionado = 'Argentina'
+  paisSeleccionado = 'ar'
 
   categorias: any[] = [
     { value: 'general', nombre: 'General'},
@@ -31,6 +33,10 @@ paises: any[] = [
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  buscarNoticia() {
+  
   }
 
 }
