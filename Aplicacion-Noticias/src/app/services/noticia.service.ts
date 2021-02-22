@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class NoticiaService {
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
+
+  getNoticia(parametros : any){
+    const URL='https://newsapi.org/v2/top-headlines?country='
+              + parametros.pais + '&category=' + parametros.categoria + '&apiKey=c561ce42a1e646fbaef209b6bc254519'
+  }
+
 }
