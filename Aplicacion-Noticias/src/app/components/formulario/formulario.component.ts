@@ -42,6 +42,6 @@ paises: any[] = [
     }
 
     this.parametrosSeleccionados.emit(PARAMETROS)
-    
+  }
 
 }
