@@ -36,7 +36,12 @@ paises: any[] = [
   }
 
   buscarNoticia() {
-  
-  }
+    const PARAMETROS = {
+      categoria: this.categoriaSeleccionada,
+      pais: this.paisSeleccionado
+    }
+
+    this.parametrosSeleccionados.emit(PARAMETROS)
+    
 
 }
