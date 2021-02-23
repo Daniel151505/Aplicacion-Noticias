@@ -8,16 +8,28 @@ import { NoticiaService } from './services/noticia.service';
 })
 export class AppComponent {
   title = 'Aplicacion-Noticias';
-
+  listarNoticia: any[]= []
+  loading=false
   constructor(private noticiaService: NoticiaService) {
 
   }
   
 
   buscarNoticias(parametros:any){
-    this.noticiaService.getNoticia(parametros).subscribe(data => {
-      
-    })
+    this.loading=true
+    this.listarNoticia = []
+
+    setTimeout(() => {
+       this.noticiaService.getNoticia(parametros).subscribe(data => {
+      this.loading= false
+      this.listarNoticia = data.articles
+    }), error => {
+      console.log(error)
+      this.loading = false
+    }
+    }, 2000);
+
+   
   }
 
 }
